@@ -18,7 +18,7 @@ const Form = () => {
           <img className='form-img' src='img/logo5.png' alt='spaceship' />
         </div>
 
-        {!isSubmitted ? (
+        {isSubmitted ? (
           <FormSignup submitForm={submitForm} setLoginPage={setIsSubmitted}/>
         ) : (
           <LoginForm submitForm={submitForm} setLoginPage= {setIsSubmitted} /> 

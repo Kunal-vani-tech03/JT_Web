@@ -160,7 +160,7 @@ export const useLoginForm = (callback, validate) => {
                 callback();
                 handleLogin();
             const loginData = localStorage.setItem('login', true)
-            // navigate('/dashboard')
+            navigate('/dashboard')
             }
         }, [errors]
     );
