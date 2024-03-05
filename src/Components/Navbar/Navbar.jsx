@@ -9,13 +9,13 @@ import notification_icon from '../../assets/notification.png'
 import profile_icon from '../../assets/jack.png'
 import {Link} from 'react-router-dom'
 import Popover from './Popover/PopOver'
-
-
+import NotificationPopOver from './NotificationBar'
 
 const Navbar = ({setSidebar }) => {
-  const [Toggle,setToggle] = useState()
+  const [Toggle,setToggle] = useState(false)
+  const [notification,setNotification] = useState(false)
   
-
+console.log(notification, "notification")
   return (<>
    
    <nav className='flex-div'>
@@ -34,10 +34,10 @@ const Navbar = ({setSidebar }) => {
   <div className="nav-right flex-div">
 <img src={upload_icon} alt="" />
 <img src={more_icon} alt="" />
-<img src={notification_icon} alt="" />
-<Popover Toggle={Toggle} />
+<NotificationPopOver Toggle={notification} close={()=>setNotification(false)} />
+<img onClick={()=>setNotification(pre=>!pre)}  src={notification_icon} alt="" />
+<Popover Toggle={Toggle} close={()=>setToggle(false)} />
   <img onClick={()=>setToggle(pre=>!pre)} src={profile_icon}  className='user-icon' alt="" />
-
    
   </div>
    </nav>

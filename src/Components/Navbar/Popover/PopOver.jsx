@@ -12,12 +12,34 @@ import {useNavigate} from 'react-router-dom';
 import Mymodal from './Mymodal';
 import Profile from './Profile';
 
-const Popover = ({Toggle    }) => {
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
+
+const Popover = ({Toggle,close}) => {
   // const navigate = useNavigate();
-   const [ProfileBox,setProfileBox] = useState()
+  //  const [ProfileBox,setProfileBox] = useState()
   return (
     <>  
-    
+    <Modal
+    open={Toggle  }
+    onClose={close}
+
+    >
+
+    {/* <Box sx={{ ...style, width: 200 }}> */}
       <div className="youtube-popover-container">
      
       {Toggle && (
@@ -60,7 +82,8 @@ const Popover = ({Toggle    }) => {
       )}
 
     </div>
-   
+    {/* </Box> */}
+    </Modal>
     </>
 
   );

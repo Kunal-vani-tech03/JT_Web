@@ -85,8 +85,10 @@ export default function NestedModal() {
           <h2 className="modal-box-title">ARE YOU SURE !</h2>
           
           <div className='modal-btn-container'>
-          <button onClick={handleLogout} className='modal-btn'>Sure</button>  
-          <button onClick={handleClose} className='modal-btn' >Cancle</button>
+          <Button variant="contained" color="success" onClick={handleLogout}  className='modal-btn-sure'>Sure</Button>
+          <Button variant="contained" color="error" onClick={handleClose} className='modal-btn-cancle'>Cancle</Button>
+         
+          {/* <button onClick={handleClose} className='modal-btn-cancle' >Cancle</button> */}
           </div>
     
         
