@@ -12,8 +12,8 @@
  
  .popover-content {
      position: absolute;
-     top: 30px;
-     left: -200px;
+     top: 50px;
+     left: 75rem;
      z-index: 1;
      background-color: #fff;
      border: 1px solid #ccc;

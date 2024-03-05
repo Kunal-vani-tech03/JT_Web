@@ -172,13 +172,13 @@ const [mobileError, setMobileError] = React.useState('');
         <img src={profile_icon} alt="" className='profile_icon' /><p>Profile</p>
       </div>
 
-      <Modal
+      <Modal 
         open={open}
         onClose={handleClose}
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style, width: 400 }} className='profile-box' onsubmit=''>
+        <Box sx={{ ...style, width: 400 ,  height: 590}} className='profile-box' onsubmit=''>
           <div className='upc'>
             <div className="gradiant"></div>
             <div className="profile-down">
