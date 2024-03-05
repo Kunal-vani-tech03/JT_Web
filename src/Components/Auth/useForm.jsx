@@ -20,22 +20,28 @@ const useForm = (callback, validate) => {
         setIsSubmitting(false)
 
     };
+ 
+
 
 
     const handleSingUp = async () => {
 
+      let headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Key': await AsyncStorage.getItem('token')
+    };
+
+
+      let payload = {
+        "email_number": email, "password": password, "unique_id": uniqueId, "device_token": device_token, "brand_name": brandName, "ip_address": IpAddress, "device": device, "device_name": deviceName, "device_id": deviceId, "otp_hash": OtpHash
+    }
         try {
           // Replace the following code with your actual login API call
-          const response = await fetch('your-signup-api-endpoint', {
+          const response = await fetch('https://jugadtugad.vanitechnologies.in/api/customer/login', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              email: values.email,
-              username: values.username,
-              password: values.password,
-            }),
+            headers: headers,
+            body: JSON.stringify(payload),
           });
     
           if (response.ok) {
@@ -100,17 +106,22 @@ export const useLoginForm = (callback, validate) => {
 
     const handleLogin = async () => {
 
+      let headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Key': await AsyncStorage.getItem('token')
+    };
+
+      let payload = {
+        "email_number": email, "password": password, "unique_id": uniqueId, "device_token": device_token, "brand_name": brandName, "ip_address": IpAddress, "device": device, "device_name": deviceName, "device_id": deviceId, "otp_hash": OtpHash
+    }
+
     try {
       // Replace the following code with your actual login API call
-      const response = await fetch('your-login-api-endpoint', {
+      const response = await fetch('https://jugadtugad.vanitechnologies.in/api/customer/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: values.username,
-          password: values.password,
-        }),
+        headers: headers,
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
@@ -160,7 +171,7 @@ export const useLoginForm = (callback, validate) => {
                 callback();
                 handleLogin();
             const loginData = localStorage.setItem('login', true)
-            navigate('/dashboard')
+            // navigate('/dashboard')
             }
         }, [errors]
     );
